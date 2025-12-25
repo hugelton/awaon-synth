@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awaon Synth - Alpha</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        header {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .version {
+            font-size: 14px;
+            color: #999;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .download-section {
+            margin: 50px 0 60px 0;
+        }
+
+        .download-section h2 {
+            font-size: 20px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border: 1px solid #1a1a1a;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #333333;
+            border-color: #333333;
+        }
+
+        button:disabled {
+            background-color: #f0f0f0;
+            color: #999;
+            border-color: #d0d0d0;
+            cursor: not-allowed;
+        }
+
+        .button-label {
+            display: block;
+            font-size: 12px;
+            margin-top: 4px;
+            color: #666;
+        }
+
+        button:disabled .button-label {
+            color: #999;
+        }
+
+        .info-section {
+            background-color: #f9f9f9;
+            padding: 24px;
+            border-left: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        .info-section h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .info-section ol {
+            font-size: 14px;
+            color: #555;
+            margin-left: 20px;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
+        }
+
+        .code-block {
+            background-color: #ffffff;
+            border: 1px solid #d0d0d0;
+            padding: 12px;
+            margin: 12px 0;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 13px;
+            color: #333;
+            overflow-x: auto;
+        }
+
+        .specs {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 13px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        .coming-soon {
+            color: #999;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="src/Awaon.png" alt="Awaon Synth Logo" style="max-width: 300px; width: 100%; height: auto; margin-bottom: 24px;">
+        <div class="logo">Awaon Synth</div>
+        <div class="tagline">Web-based Software Synthesizer</div>
+        <div class="version">Alpha v0.0.1</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Awaon Synth へようこそ</h1>
+            <p>Awaon Synth は、高度な機能を備えたウェブベースの合成器です。iPlug2 フレームワークを使用した、リアルタイムの音声処理と豊かな modulation により、無限の創造性を実現します。</p>
+            <p>このアルファ版は、初期段階での機能テストとユーザーフィードバック収集を目的としています。</p>
+        </section>
+
+        <section class="download-section">
+            <h2>ダウンロード</h2>
+            <div class="button-group">
+                <div>
+                    <button onclick="downloadMacOS()">
+                        macOS をダウンロード
+                        <span class="button-label">12.1 MB</span>
+                    </button>
+                </div>
+                <div>
+                    <button disabled>
+                        Windows
+                        <span class="button-label">Coming Soon</span>
+                    </button>
+                </div>
+            </div>
+            <div class="specs">
+                <strong>システム要件:</strong> macOS 11 以上
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h3>起動できない場合の対処法</h3>
+            <p>初回起動時に「開発元が不明なため開けません」というエラーが表示される場合があります。以下の手順を実行してください：</p>
+            <ol>
+                <li><strong>ターミナルを開く</strong> (アプリケーション → ユーティリティ → ターミナル)</li>
+                <li><strong>以下のコマンドを実行</strong>
+                    <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
+                    <p style="margin-top: 8px; font-size: 13px; color: #666;">※ Awaon.app のパスは実際の保存場所に置き換えてください</p>
+                </li>
+                <li><strong>Awaon.app を起動</strong></li>
+            </ol>
+            <p style="margin-top: 16px; color: #666;"><strong>補足:</strong> このコマンドは macOS のセキュリティ属性 (quarantine attribute) を削除するもので、2025年でも引き続き有効です。署名されていないアプリケーションやインターネットから直接ダウンロードされたアプリケーションに対して使用されます。</p>
+        </section>
+
+        <section class="info-section" style="margin-top: 40px;">
+            <h3>主な機能</h3>
+            <p><strong>オシレーター:</strong> ウェーブテーブル合成による 2 つのオシレーター + トランジェントシェイパー</p>
+            <p><strong>フィルター:</strong> 4 種類の VCF (ローパス、ハイパス、バンドパス、ノッチ) と共鳴フィルター</p>
+            <p><strong>エフェクト:</strong> ディレイ、コーラス、リバーブ</p>
+            <p><strong>モジュレーション:</strong> 2 つのエンベロープと 2 つの LFO、完全なモジュレーションマトリックス</p>
+            <p><strong>プリセット:</strong> プリセット管理システムと仮想 MIDI キーボード</p>
+        </section>
+
+        <section class="info-section" style="margin-top: 40px;">
+            <h3>初回起動時の設定</h3>
+            <p>Awaon Synth は初回起動時に、ユーザープリセットとウェーブテーブル用のディレクトリを自動生成します:</p>
+            <div class="code-block">~/Library/Audio/Presets/Hugelton/Awaon/</div>
+            <p>このディレクトリ内に以下が作成されます:</p>
+            <ul style="margin-left: 20px; font-size: 14px; color: #555; line-height: 1.7;">
+                <li><strong>Init.awaon</strong> - デフォルトプリセットファイル</li>
+                <li><strong>Wavetables/</strong> - ユーザーウェーブテーブル用フォルダ</li>
+            </ul>
+            <p style="margin-top: 12px;">カスタムウェーブテーブルは <strong>.wtb</strong> 拡張子で <code style="background-color: #ffffff; padding: 2px 4px; border: 1px solid #d0d0d0;">Wavetables/</code> フォルダに保存できます。</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Awaon Synth Alpha v0.0.1</p>
+        <p>© Hügelton Instruments, Kōbe, Japan.</p>
+        <p><a href="https://hugelton.com/" style="color: #999; text-decoration: none;">https://hugelton.com/</a></p>
+        <p style="margin-top: 16px; color: #ccc;">
+            For feedback and issues, please visit the <a href="https://github.com/hugelton/awaon-synth" style="color: #999; text-decoration: none;">GitHub repository</a>
+        </p>
+    </footer>
+
+    <script>
+        function downloadMacOS() {
+            const downloadUrl = 'https://github.com/hugelton/awaon-synth/raw/main/build/Awaon-0.0.1.zip';
+            window.location.href = downloadUrl;
+        }
+    </script>
+</body>
+</html>
