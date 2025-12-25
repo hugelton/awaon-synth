@@ -304,6 +304,24 @@
             color: #1a1a1a;
         }
 
+        .alert-block {
+            background-color: #ffebee;
+            border-left: 4px solid #d32f2f;
+            padding: 16px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #c62828;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .alert-block {
+                background-color: #5d1f1a;
+                border-left-color: #ff6b6b;
+                color: #ffb3ba;
+            }
+        }
+
         [data-lang="en"] {
             display: none;
         }
@@ -332,6 +350,16 @@
     </header>
 
     <main>
+        <div class="alert-block" data-lang="ja">
+            <strong>スタンドアロンアプリのみ</strong><br>
+            現在のところ、Awaon Synth はスタンドアロンアプリとして配布されています。プラグイン版（AU v3、VST3）は近日対応予定です。
+        </div>
+
+        <div class="alert-block" data-lang="en">
+            <strong>Standalone App Only</strong><br>
+            Awaon Synth is currently distributed as a standalone application. Plugin versions (AU v3, VST3) will be available soon.
+        </div>
+
         <div class="content">
             <div class="button-group">
                 <div>
