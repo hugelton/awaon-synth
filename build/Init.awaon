@@ -1,0 +1,172 @@
+{
+  "version": "0.0.1",
+  "id": "factory-init",
+  "name": "Init",
+  "category": "Lead",
+  "author": "Factory",
+  "description": "Default initialization preset",
+  "wavetables": {
+    "osc1_a": {
+      "bank": "Factory",
+      "name": "Sawtooth"
+    },
+    "osc1_b": {
+      "bank": "Factory",
+      "name": "Sine"
+    },
+    "osc2_a": {
+      "bank": "Factory",
+      "name": "Square"
+    },
+    "osc2_b": {
+      "bank": "Factory",
+      "name": "Ramp"
+    }
+  },
+  "parameters": {
+    "osc1_wave": 0,
+    "osc1_semi": 0.5,
+    "osc1_fine": 0.5,
+    "osc1_level": 0.8,
+    "osc1_sync": 0,
+    "osc2_wave": 0,
+    "osc2_semi": 0.5,
+    "osc2_fine": 0.5,
+    "osc2_level": 0.8,
+    "osc2_detune": 0.5,
+    "noise_type": 0,
+    "noise_level": 0,
+    "noise_variant": 0.5,
+    "flt1_type": 0,
+    "flt1_cutoff": 1.0,
+    "flt1_reso": 0,
+    "flt1_drive": 0,
+    "flt2_type": 0,
+    "flt2_cutoff": 1.0,
+    "flt2_reso": 0,
+    "flt2_drive": 0,
+    "flt_routing": 0,
+    "flt_mix": 0.5,
+    "env1_attack": 0.00018000360007200142,
+    "env1_decay": 0,
+    "env1_sustain": 1,
+    "env1_release": 0.001980039600792016,
+    "env1_curve": 0.5,
+    "env1_level": 1,
+    "env2_attack": 0.001980039600792016,
+    "env2_decay": 0.01998039960799216,
+    "env2_sustain": 0.5,
+    "env2_release": 0.01998039960799216,
+    "env2_curve": 0.5,
+    "env2_level": 1,
+    "lfo1_wave": 0,
+    "lfo1_rate": 0.24962481240620313,
+    "lfo1_shape": 0.5,
+    "lfo1_depth": 1,
+    "lfo1_sync": 0,
+    "lfo2_wave": 0,
+    "lfo2_rate": 0.0495247623811906,
+    "lfo2_shape": 0.5,
+    "lfo2_depth": 0,
+    "lfo2_sync": 0,
+    "delay_time": 0.25,
+    "delay_feedback": 0.3,
+    "delay_mix": 0.5,
+    "delay_sync": 0,
+    "chorus_rate": 0.06,
+    "chorus_depth": 0.5,
+    "chorus_mix": 0.5,
+    "reverb_size": 0.5,
+    "reverb_damp": 0.5,
+    "reverb_mix": 0.5,
+    "master": 0.8,
+    "portamento": 0,
+    "tune": 0.5,
+    "voices": 0.5,
+    "voicing": 0.5,
+    "bend": 2,
+    "lfo1_tempo_div": 0.5,
+    "octave": 0.5,
+    "semitone": 0.5,
+    "osc1_amount": 0,
+    "osc1_bank": 0,
+    "osc1_compound": 0,
+    "osc2_amount": 0,
+    "osc2_bank": 0,
+    "osc2_compound": 0,
+    "modal_type": 0,
+    "modal_tone": 0.5,
+    "modal_reso": 0.5,
+    "modal_mix": 0,
+    "lfo1_delay": 0,
+    "lfo2_delay": 0,
+    "flt1_mix": 0.5,
+    "flt2_mix": 0.5,
+    "osc1_offset_a": 0,
+    "osc1_offset_b": 0,
+    "osc2_offset_a": 0,
+    "osc2_offset_b": 0,
+    "osc1_clip": 0,
+    "osc2_clip": 0,
+    "trans_mode": 0,
+    "trans_decay": 0.5,
+    "trans_timbre": 0.5,
+    "lfo2_tempo_div": 0.5,
+    "trans_level": 0,
+    "sig_clip": 0,
+    "sig_drive": 0,
+    "sig_tone": 0.5,
+    "master_pan": 0.5,
+    "unison_detune": 0,
+    "filter_slope": 1,
+    "filter2_slope": 1
+  },
+  "matrix": [
+    {
+      "source": 1,
+      "destination": 19,
+      "amount": 1.0
+    },
+    {
+      "source": 2,
+      "destination": 11,
+      "amount": 0.5
+    },
+    {
+      "source": 8,
+      "destination": 52,
+      "amount": 1.0
+    },
+    {
+      "source": 9,
+      "destination": 16,
+      "amount": 0.5
+    }
+  ],
+  "patch": [
+    {
+      "from": "osc1",
+      "to": "filter1"
+    },
+    {
+      "from": "osc2",
+      "to": "filter1"
+    },
+    {
+      "from": "transient",
+      "to": "filter1"
+    },
+    {
+      "from": "noise",
+      "to": "filter1"
+    },
+    {
+      "from": "filter1",
+      "to": "filter2"
+    },
+    {
+      "from": "filter2",
+      "to": "output"
+    }
+  ]
+}
