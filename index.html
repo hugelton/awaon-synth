@@ -342,8 +342,8 @@
 </head>
 <body>
     <div class="language-toggle">
-        <button class="lang-btn active" onclick="setLanguage('ja')">日本語</button>
-        <button class="lang-btn" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn active" onclick="setLanguage('ja', this)">日本語</button>
+        <button class="lang-btn" onclick="setLanguage('en', this)">English</button>
     </div>
 
     <header>
@@ -381,14 +381,6 @@
                 </div>
             </div>
 
-            <div class="specs">
-                <strong data-lang="ja">対応:</strong>
-                <strong data-lang="en">Support:</strong>
-                macOS 11+ (.app)<br>
-                <strong data-lang="ja">近日対応予定:</strong>
-                <strong data-lang="en">Coming Soon:</strong>
-                AU v3, VST3
-            </div>
         </div>
 
         <details>
@@ -428,7 +420,7 @@
     </footer>
 
     <script>
-        function setLanguage(lang) {
+        function setLanguage(lang, btnElement) {
             const body = document.body;
             const buttons = document.querySelectorAll('.lang-btn');
 
@@ -439,7 +431,9 @@
             }
 
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
 
             localStorage.setItem('lang', lang);
         }
