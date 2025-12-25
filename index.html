@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awaon Synth</title>
+    <title>Awaon</title>
     <style>
         * {
             margin: 0;
@@ -18,6 +19,11 @@
             line-height: 1.6;
         }
 
+        hr {
+            border: none;
+
+        }
+
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #121212;
@@ -25,7 +31,7 @@
             }
 
             header {
-                border-bottom: 1px solid #242424;
+                border-bottom: 1px solid #24242463;
             }
 
             .version {
@@ -56,39 +62,48 @@
 
             .specs {
                 color: #b0b0b0;
-                border-top-color: #242424;
+                border-top: 1px solid #242424 !important;
             }
 
             details {
-                background-color: #1e1e1e;
-                border: 1px solid #242424;
+                background-color: #1e1e1e !important;
+                border: 1px solid #242424 !important;
+                border-radius: 8px;
             }
 
             summary {
-                color: #ffffff;
+                color: #ffffff !important;
             }
 
             summary:hover {
                 color: #e0e0e0;
             }
 
+            details[open] {
+                background-color: #1e1e1e;
+            }
+
             .troubleshoot-content {
-                color: #e0e0e0;
-                border-top-color: #242424;
+                color: #e0e0e0 !important;
+                border-top: 1px solid #242424 !important;
+            }
+
+            .troubleshoot-content p {
+                color: #e0e0e0 !important;
             }
 
             .troubleshoot-content ol {
-                color: #e0e0e0;
+                color: #e0e0e0 !important;
             }
 
             .troubleshoot-content li {
-                color: #e0e0e0;
+                color: #e0e0e0 !important;
             }
 
             .code-block {
-                background-color: #2a2a2a;
-                border-color: #404040;
-                color: #e0e0e0;
+                background-color: #2a2a2a !important;
+                border: 1px solid #404040 !important;
+                color: #e0e0e0 !important;
             }
 
             footer {
@@ -102,18 +117,19 @@
         }
 
         header {
-            border-bottom: 1px solid #f0f0f0;
+
             padding: 40px 20px;
             text-align: center;
             position: relative;
         }
 
         .language-toggle {
-            position: absolute;
+            position: fixed;
             top: 20px;
             right: 20px;
             display: flex;
             gap: 8px;
+            z-index: 200;
         }
 
         .lang-btn {
@@ -260,7 +276,7 @@
             margin-top: 16px;
             font-size: 14px;
             color: #555;
-            border-top: 1px solid #f0f0f0;
+
             padding-top: 16px;
             line-height: 1.8;
         }
@@ -289,7 +305,7 @@
         footer {
             text-align: center;
             padding: 40px 20px;
-            border-top: 1px solid #f0f0f0;
+
             color: #999;
             font-size: 13px;
             margin-top: 80px;
@@ -310,7 +326,7 @@
 
         .alert-block {
             background-color: #ffebee;
-            border-left: 4px solid #d32f2f;
+
             padding: 16px;
             margin-bottom: 40px;
             border-radius: 4px;
@@ -322,7 +338,7 @@
         @media (prefers-color-scheme: dark) {
             .alert-block {
                 background-color: #5d1f1a;
-                border-left-color: #ff6b6b;
+
                 color: #ffb3ba;
             }
         }
@@ -340,6 +356,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="language-toggle">
         <button class="lang-btn active" onclick="setLanguage('ja', this)">日本語</button>
@@ -348,8 +365,8 @@
 
     <header>
         <div class="logo">
-            <img src="src/Awaon.png" alt="Awaon Synth">
-            Awaon Synth
+            <img src="src/Awaon.png" alt="Awaon">
+            Awaon
         </div>
         <div class="version">v0.0.1</div>
     </header>
@@ -362,20 +379,23 @@
 
         <div class="alert-block" data-lang="en">
             <strong>Standalone App Only</strong><br>
-            Awaon Synth is currently distributed as a standalone application. Plugin versions (AU v3, VST3) will be available soon.
+            Awaon Synth is currently distributed as a standalone application. Plugin versions (AU v3, VST3) will be
+            available soon.
         </div>
 
         <div class="content">
             <div class="button-group">
                 <div>
                     <button onclick="downloadMacOS()">
-                        macOS をダウンロード
-                        <span class="button-label">12.1 MB · .app</span>
+                        <span data-lang="ja">macOS版をダウンロード</span>
+                        <span data-lang="en">Download for macOS</span>
+                        <span class="button-label">12.1 MB · .zip</span>
                     </button>
                 </div>
                 <div>
                     <button disabled>
-                        Windows
+                        <span data-lang="ja">Windows版をダウンロード</span>
+                        <span data-lang="en">Download for Windows</span>
                         <span class="button-label">Coming Soon</span>
                     </button>
                 </div>
@@ -384,8 +404,10 @@
         </div>
 
         <details>
-            <summary data-lang="ja">起動に問題がある場合</summary>
-            <summary data-lang="en">Troubleshooting</summary>
+            <summary>
+                <span data-lang="ja">起動に問題がある場合</span>
+                <span data-lang="en">Troubleshooting</span>
+            </summary>
             <div class="troubleshoot-content" data-lang="ja">
                 <p>初回起動時に「開発元が不明なため開けません」というエラーが表示される場合、以下のコマンドを実行してください：</p>
                 <ol>
@@ -397,12 +419,14 @@
                 </ol>
             </div>
             <div class="troubleshoot-content" data-lang="en">
-                <p>If you see "cannot be opened because the developer cannot be verified", run this command in Terminal:</p>
+                <p>If you see "cannot be opened because the developer cannot be verified", run this command in Terminal:
+                </p>
                 <ol>
                     <li>Open Terminal (Applications → Utilities → Terminal)</li>
                     <li>Run the command
                         <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
-                        <p style="margin-top: 8px; font-size: 12px; color: #999;">Replace the path if Awaon.app is in a different location</p>
+                        <p style="margin-top: 8px; font-size: 12px; color: #999;">Replace the path if Awaon.app is in a
+                            different location</p>
                     </li>
                 </ol>
             </div>
@@ -410,7 +434,7 @@
     </main>
 
     <footer>
-        <p>Awaon Synth v0.0.1</p>
+        <p>Awaon v0.0.1</p>
         <p>© Hügelton Instruments, Kōbe, Japan.</p>
         <p><a href="https://hugelton.com/">https://hugelton.com/</a></p>
         <p style="margin-top: 16px;">
@@ -421,21 +445,26 @@
 
     <script>
         function setLanguage(lang, btnElement) {
+            console.log('Setting language to:', lang);
             const body = document.body;
             const buttons = document.querySelectorAll('.lang-btn');
 
+            // Remove lang-en class
             if (lang === 'en') {
                 body.classList.add('lang-en');
             } else {
                 body.classList.remove('lang-en');
             }
 
+            // Update active button
             buttons.forEach(btn => btn.classList.remove('active'));
             if (btnElement) {
                 btnElement.classList.add('active');
             }
 
+            // Save to localStorage
             localStorage.setItem('lang', lang);
+            console.log('Language saved:', lang);
         }
 
         function downloadMacOS() {
@@ -444,14 +473,20 @@
         }
 
         // Initialize language on page load
-        window.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const savedLang = localStorage.getItem('lang') || 'ja';
+            console.log('Initializing with saved language:', savedLang);
+
             if (savedLang === 'en') {
                 document.body.classList.add('lang-en');
-                document.querySelectorAll('.lang-btn')[1].classList.add('active');
-                document.querySelectorAll('.lang-btn')[0].classList.remove('active');
+                const buttons = document.querySelectorAll('.lang-btn');
+                if (buttons.length >= 2) {
+                    buttons[0].classList.remove('active');
+                    buttons[1].classList.add('active');
+                }
             }
         });
     </script>
 </body>
+
 </html>
