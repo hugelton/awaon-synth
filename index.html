@@ -25,52 +25,25 @@
             }
 
             header {
-                border-bottom-color: #303030;
-            }
-
-            .logo {
-                color: #ffffff;
+                border-bottom-color: #242424;
             }
 
             .version {
                 color: #808080;
             }
 
-            .hero {
-                color: #ffffff;
-            }
-
-            .hero h1 {
-                color: #ffffff;
-            }
-
-            .hero p {
-                color: #e0e0e0;
-            }
-
-            .download-section h2 {
-                color: #ffffff;
-            }
-
-            .button-group {
-                color: #ffffff;
-            }
-
             button {
-                border-color: #ffffff;
                 background-color: #ffffff;
                 color: #121212;
             }
 
             button:hover:not(:disabled) {
                 background-color: #e0e0e0;
-                border-color: #e0e0e0;
             }
 
             button:disabled {
-                background-color: #303030;
-                color: #808080;
-                border-color: #404040;
+                background-color: #2a2a2a;
+                color: #666666;
             }
 
             .button-label {
@@ -78,36 +51,37 @@
             }
 
             button:disabled .button-label {
-                color: #808080;
+                color: #666666;
             }
 
             .specs {
                 color: #b0b0b0;
-                border-top-color: #303030;
+                border-top-color: #242424;
             }
 
-            .info-section {
+            details {
                 background-color: #1e1e1e;
-                border-left-color: #303030;
+                border-color: #242424;
             }
 
-            .info-section h3 {
+            summary {
                 color: #ffffff;
             }
 
-            .info-section p {
+            summary:hover {
                 color: #e0e0e0;
             }
 
-            .info-section ol {
+            .troubleshoot-content {
+                color: #e0e0e0;
+                border-top-color: #242424;
+            }
+
+            .troubleshoot-content ol {
                 color: #e0e0e0;
             }
 
-            .info-section li {
-                color: #e0e0e0;
-            }
-
-            .info-section ul {
+            .troubleshoot-content li {
                 color: #e0e0e0;
             }
 
@@ -118,194 +92,20 @@
             }
 
             footer {
-                border-top-color: #303030;
-                color: #808080;
-            }
-
-            footer p {
+                border-top-color: #242424;
                 color: #808080;
             }
 
             footer a {
                 color: #b0b0b0;
             }
-
-            footer a:hover {
-                color: #e0e0e0;
-            }
         }
 
         header {
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #f0f0f0;
             padding: 40px 20px;
             text-align: center;
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .tagline {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 4px;
-        }
-
-        .version {
-            font-size: 14px;
-            color: #999;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .hero {
-            margin-bottom: 60px;
-        }
-
-        .hero h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 12px;
-        }
-
-        .download-section {
-            margin: 50px 0 60px 0;
-        }
-
-        .download-section h2 {
-            font-size: 20px;
-            margin-bottom: 24px;
-            font-weight: 600;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        button {
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: 500;
-            border: 1px solid #1a1a1a;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-
-        button:hover:not(:disabled) {
-            background-color: #333333;
-            border-color: #333333;
-        }
-
-        button:disabled {
-            background-color: #f0f0f0;
-            color: #999;
-            border-color: #d0d0d0;
-            cursor: not-allowed;
-        }
-
-        .button-label {
-            display: block;
-            font-size: 12px;
-            margin-top: 4px;
-            color: #666;
-        }
-
-        button:disabled .button-label {
-            color: #999;
-        }
-
-        .info-section {
-            background-color: #f9f9f9;
-            padding: 24px;
-            border-left: 1px solid #e0e0e0;
-            margin-top: 40px;
-        }
-
-        .info-section h3 {
-            font-size: 18px;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .info-section p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .info-section ol {
-            font-size: 14px;
-            color: #555;
-            margin-left: 20px;
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .info-section li {
-            margin-bottom: 8px;
-        }
-
-        .code-block {
-            background-color: #ffffff;
-            border: 1px solid #d0d0d0;
-            padding: 12px;
-            margin: 12px 0;
-            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
-            font-size: 13px;
-            color: #333;
-            overflow-x: auto;
-        }
-
-        .specs {
-            font-size: 14px;
-            color: #666;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #e0e0e0;
-            color: #999;
-            font-size: 13px;
-            margin-top: 80px;
-        }
-
-        footer p {
-            margin-bottom: 8px;
-        }
-
-        .coming-soon {
-            color: #999;
-            font-size: 12px;
-            margin-top: 4px;
+            position: relative;
         }
 
         .language-toggle {
@@ -319,39 +119,189 @@
         .lang-btn {
             padding: 6px 12px;
             font-size: 13px;
-            border: 1px solid #d0d0d0;
-            background-color: #ffffff;
+            border: none;
+            background-color: transparent;
             color: #1a1a1a;
             cursor: pointer;
             font-weight: 500;
         }
 
         .lang-btn.active {
-            border-color: #1a1a1a;
-            background-color: #1a1a1a;
-            color: #ffffff;
+            color: #1a1a1a;
+            font-weight: 600;
         }
 
         .lang-btn:hover {
-            border-color: #1a1a1a;
+            color: #333333;
         }
 
         @media (prefers-color-scheme: dark) {
             .lang-btn {
-                border-color: #333333;
-                background-color: transparent;
                 color: #ffffff;
             }
 
             .lang-btn.active {
-                border-color: #ffffff;
-                background-color: #ffffff;
-                color: #1a1a1a;
+                color: #ffffff;
             }
 
             .lang-btn:hover {
-                border-color: #ffffff;
+                color: #e0e0e0;
             }
+        }
+
+        .logo {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .logo img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .version {
+            font-size: 14px;
+            color: #999;
+        }
+
+        main {
+            max-width: 720px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 12px 32px;
+            font-size: 16px;
+            font-weight: 500;
+            border: none;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #333333;
+        }
+
+        button:disabled {
+            background-color: #f0f0f0;
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        .button-label {
+            display: block;
+            font-size: 12px;
+            margin-top: 0;
+            color: #ddd;
+        }
+
+        button:disabled .button-label {
+            color: #999;
+        }
+
+        .specs {
+            font-size: 14px;
+            color: #666;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 20px;
+            margin-top: 0;
+        }
+
+        details {
+            margin-top: 60px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+        }
+
+        summary {
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #1a1a1a;
+            outline: none;
+        }
+
+        summary:hover {
+            color: #333333;
+        }
+
+        .troubleshoot-content {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #555;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 16px;
+            line-height: 1.8;
+        }
+
+        .troubleshoot-content ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .troubleshoot-content li {
+            margin-bottom: 8px;
+        }
+
+        .code-block {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            margin: 12px 0;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 13px;
+            color: #333;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #f0f0f0;
+            color: #999;
+            font-size: 13px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #1a1a1a;
         }
 
         [data-lang="en"] {
@@ -372,22 +322,17 @@
         <button class="lang-btn active" onclick="setLanguage('ja')">日本語</button>
         <button class="lang-btn" onclick="setLanguage('en')">English</button>
     </div>
+
     <header>
-        <img src="src/Awaon.png" alt="Awaon Synth Logo" style="max-width: 300px; width: 100%; height: auto; margin-bottom: 24px;">
-        <div class="logo">Awaon Synth</div>
+        <div class="logo">
+            <img src="src/Awaon.png" alt="Awaon Synth">
+            Awaon Synth
+        </div>
         <div class="version">v0.0.1</div>
     </header>
 
     <main>
-        <section class="hero" data-lang="ja">
-            <h1>Awaon Synth へようこそ</h1>
-        </section>
-        <section class="hero" data-lang="en">
-            <h1>Welcome to Awaon Synth</h1>
-        </section>
-
-        <section class="download-section" data-lang="ja">
-            <h2>ダウンロード</h2>
+        <div class="content">
             <div class="button-group">
                 <div>
                     <button onclick="downloadMacOS()">
@@ -402,114 +347,50 @@
                     </button>
                 </div>
             </div>
+
             <div class="specs">
-                <strong>現在の対応:</strong> macOS 11+ (.app)<br>
-                <strong>対応予定:</strong> AU v3、VST3
+                <strong data-lang="ja">対応:</strong>
+                <strong data-lang="en">Support:</strong>
+                macOS 11+ (.app)<br>
+                <strong data-lang="ja">近日対応予定:</strong>
+                <strong data-lang="en">Coming Soon:</strong>
+                AU v3, VST3
             </div>
-        </section>
+        </div>
 
-        <section class="download-section" data-lang="en">
-            <h2>Download</h2>
-            <div class="button-group">
-                <div>
-                    <button onclick="downloadMacOS()">
-                        Download for macOS
-                        <span class="button-label">12.1 MB · .app</span>
-                    </button>
-                </div>
-                <div>
-                    <button disabled>
-                        Windows
-                        <span class="button-label">Coming Soon</span>
-                    </button>
-                </div>
+        <details>
+            <summary data-lang="ja">起動に問題がある場合</summary>
+            <summary data-lang="en">Troubleshooting</summary>
+            <div class="troubleshoot-content" data-lang="ja">
+                <p>初回起動時に「開発元が不明なため開けません」というエラーが表示される場合、以下のコマンドを実行してください：</p>
+                <ol>
+                    <li>ターミナルを開く (アプリケーション → ユーティリティ → ターミナル)</li>
+                    <li>以下のコマンドを実行
+                        <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
+                        <p style="margin-top: 8px; font-size: 12px; color: #999;">※ パスは実際の保存場所に置き換えてください</p>
+                    </li>
+                </ol>
             </div>
-            <div class="specs">
-                <strong>Current Support:</strong> macOS 11+ (.app)<br>
-                <strong>Coming Soon:</strong> AU v3, VST3
+            <div class="troubleshoot-content" data-lang="en">
+                <p>If you see "cannot be opened because the developer cannot be verified", run this command in Terminal:</p>
+                <ol>
+                    <li>Open Terminal (Applications → Utilities → Terminal)</li>
+                    <li>Run the command
+                        <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
+                        <p style="margin-top: 8px; font-size: 12px; color: #999;">Replace the path if Awaon.app is in a different location</p>
+                    </li>
+                </ol>
             </div>
-        </section>
-
-        <section class="info-section" data-lang="ja">
-            <h3>起動できない場合の対処法</h3>
-            <p>初回起動時に「開発元が不明なため開けません」というエラーが表示される場合があります。以下の手順を実行してください：</p>
-            <ol>
-                <li><strong>ターミナルを開く</strong> (アプリケーション → ユーティリティ → ターミナル)</li>
-                <li><strong>以下のコマンドを実行</strong>
-                    <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
-                    <p style="margin-top: 8px; font-size: 13px; color: #666;">※ Awaon.app のパスは実際の保存場所に置き換えてください</p>
-                </li>
-                <li><strong>Awaon.app を起動</strong></li>
-            </ol>
-            <p style="margin-top: 16px; color: #666;"><strong>補足:</strong> このコマンドは macOS のセキュリティ属性 (quarantine attribute) を削除するもので、2025年でも引き続き有効です。署名されていないアプリケーションやインターネットから直接ダウンロードされたアプリケーションに対して使用されます。</p>
-        </section>
-
-        <section class="info-section" data-lang="en">
-            <h3>Troubleshooting</h3>
-            <p>If you see an error message "cannot be opened because the developer cannot be verified" on first launch, follow these steps:</p>
-            <ol>
-                <li><strong>Open Terminal</strong> (Applications → Utilities → Terminal)</li>
-                <li><strong>Run the following command</strong>
-                    <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
-                    <p style="margin-top: 8px; font-size: 13px; color: #999;">Replace the path with the actual location of Awaon.app if different</p>
-                </li>
-                <li><strong>Launch Awaon.app</strong></li>
-            </ol>
-            <p style="margin-top: 16px; color: #999;"><strong>Note:</strong> This command removes the macOS quarantine attribute and remains effective in 2025. It is used for unsigned applications or those downloaded directly from the internet.</p>
-        </section>
-
-        <section class="info-section" style="margin-top: 40px;" data-lang="ja">
-            <h3>主な機能</h3>
-            <p><strong>オシレーター:</strong> ウェーブテーブル合成による 2 つのオシレーター + トランジェントシェイパー</p>
-            <p><strong>フィルター:</strong> 4 種類の VCF (ローパス、ハイパス、バンドパス、ノッチ) と共鳴フィルター</p>
-            <p><strong>エフェクト:</strong> ディレイ、コーラス、リバーブ</p>
-            <p><strong>モジュレーション:</strong> 2 つのエンベロープと 2 つの LFO、完全なモジュレーションマトリックス</p>
-            <p><strong>プリセット:</strong> プリセット管理システムと仮想 MIDI キーボード</p>
-        </section>
-
-        <section class="info-section" style="margin-top: 40px;" data-lang="en">
-            <h3>Features</h3>
-            <p><strong>Oscillators:</strong> 2 wavetable oscillators + transient shaper with wavetable synthesis</p>
-            <p><strong>Filters:</strong> 4 types of VCF (lowpass, highpass, bandpass, notch) and resonance filter</p>
-            <p><strong>Effects:</strong> Delay, Chorus, Reverb</p>
-            <p><strong>Modulation:</strong> 2 envelopes and 2 LFOs with complete modulation matrix</p>
-            <p><strong>Presets:</strong> Preset management system and virtual MIDI keyboard</p>
-        </section>
-
-        <section class="info-section" style="margin-top: 40px;" data-lang="ja">
-            <h3>初回起動時の設定</h3>
-            <p>Awaon Synth は初回起動時に、ユーザープリセットとウェーブテーブル用のディレクトリを自動生成します:</p>
-            <div class="code-block">~/Library/Audio/Presets/Hugelton/Awaon/</div>
-            <p>このディレクトリ内に以下が作成されます:</p>
-            <ul style="margin-left: 20px; font-size: 14px; color: #555; line-height: 1.7;">
-                <li><strong>Init.awaon</strong> - デフォルトプリセットファイル</li>
-                <li><strong>Wavetables/</strong> - ユーザーウェーブテーブル用フォルダ</li>
-            </ul>
-            <p style="margin-top: 12px;">カスタムウェーブテーブルは <strong>.wtb</strong> 拡張子で <code style="background-color: #ffffff; padding: 2px 4px; border: 1px solid #d0d0d0;">Wavetables/</code> フォルダに保存できます。</p>
-        </section>
-
-        <section class="info-section" style="margin-top: 40px;" data-lang="en">
-            <h3>Initial Setup</h3>
-            <p>On first launch, Awaon Synth automatically creates a directory for user presets and wavetables:</p>
-            <div class="code-block">~/Library/Audio/Presets/Hugelton/Awaon/</div>
-            <p>The following are created in this directory:</p>
-            <ul style="margin-left: 20px; font-size: 14px; color: #555; line-height: 1.7;">
-                <li><strong>Init.awaon</strong> - Default preset file</li>
-                <li><strong>Wavetables/</strong> - Folder for user wavetables</li>
-            </ul>
-            <p style="margin-top: 12px;">Custom wavetables can be saved with the <strong>.wtb</strong> extension in the <code style="background-color: #ffffff; padding: 2px 4px; border: 1px solid #d0d0d0;">Wavetables/</code> folder.</p>
-        </section>
+        </details>
     </main>
 
     <footer>
         <p>Awaon Synth v0.0.1</p>
         <p>© Hügelton Instruments, Kōbe, Japan.</p>
-        <p><a href="https://hugelton.com/" style="color: #999; text-decoration: none;">https://hugelton.com/</a></p>
-        <p style="margin-top: 16px; color: #ccc;" data-lang="ja">
-            ご意見・ご報告は <a href="https://github.com/hugelton/awaon-synth" style="color: #999; text-decoration: none;">GitHub リポジトリ</a> でお願いします
-        </p>
-        <p style="margin-top: 16px; color: #ccc;" data-lang="en">
-            For feedback and issues, please visit the <a href="https://github.com/hugelton/awaon-synth" style="color: #999; text-decoration: none;">GitHub repository</a>
+        <p><a href="https://hugelton.com/">https://hugelton.com/</a></p>
+        <p style="margin-top: 16px;">
+            <a href="https://github.com/hugelton/awaon-synth" data-lang="ja">GitHub リポジトリ</a>
+            <a href="https://github.com/hugelton/awaon-synth" data-lang="en">GitHub Repository</a>
         </p>
     </footer>
 
