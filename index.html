@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awaon Synth - Alpha</title>
+    <title>Awaon Synth</title>
     <style>
         * {
             margin: 0;
@@ -16,6 +16,79 @@
             background-color: #ffffff;
             color: #1a1a1a;
             line-height: 1.6;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #ffffff;
+            }
+
+            header {
+                border-bottom-color: #333333;
+            }
+
+            .tagline {
+                color: #b0b0b0;
+            }
+
+            .version {
+                color: #666666;
+            }
+
+            .hero p {
+                color: #d0d0d0;
+            }
+
+            .info-section {
+                background-color: #242424;
+                border-left-color: #333333;
+            }
+
+            .info-section p {
+                color: #d0d0d0;
+            }
+
+            .info-section ol {
+                color: #d0d0d0;
+            }
+
+            .specs {
+                color: #b0b0b0;
+                border-top-color: #333333;
+            }
+
+            .code-block {
+                background-color: #2a2a2a;
+                border-color: #333333;
+                color: #ffffff;
+            }
+
+            button {
+                border-color: #ffffff;
+                background-color: #ffffff;
+                color: #1a1a1a;
+            }
+
+            button:hover:not(:disabled) {
+                background-color: #d0d0d0;
+                border-color: #d0d0d0;
+            }
+
+            button:disabled {
+                background-color: #333333;
+                color: #666666;
+                border-color: #444444;
+            }
+
+            .button-label {
+                color: #b0b0b0;
+            }
+
+            footer {
+                border-top-color: #333333;
+                color: #666666;
+            }
         }
 
         header {
@@ -185,30 +258,92 @@
             font-size: 12px;
             margin-top: 4px;
         }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            font-size: 13px;
+            border: 1px solid #d0d0d0;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .lang-btn.active {
+            border-color: #1a1a1a;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .lang-btn:hover {
+            border-color: #1a1a1a;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .lang-btn {
+                border-color: #333333;
+                background-color: transparent;
+                color: #ffffff;
+            }
+
+            .lang-btn.active {
+                border-color: #ffffff;
+                background-color: #ffffff;
+                color: #1a1a1a;
+            }
+
+            .lang-btn:hover {
+                border-color: #ffffff;
+            }
+        }
+
+        [data-lang="en"] {
+            display: none;
+        }
+
+        body.lang-en [data-lang="en"] {
+            display: block;
+        }
+
+        body.lang-en [data-lang="ja"] {
+            display: none;
+        }
     </style>
 </head>
 <body>
+    <div class="language-toggle">
+        <button class="lang-btn active" onclick="setLanguage('ja')">日本語</button>
+        <button class="lang-btn" onclick="setLanguage('en')">English</button>
+    </div>
     <header>
         <img src="src/Awaon.png" alt="Awaon Synth Logo" style="max-width: 300px; width: 100%; height: auto; margin-bottom: 24px;">
         <div class="logo">Awaon Synth</div>
-        <div class="tagline">Web-based Software Synthesizer</div>
-        <div class="version">Alpha v0.0.1</div>
+        <div class="version">v0.0.1</div>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" data-lang="ja">
             <h1>Awaon Synth へようこそ</h1>
-            <p>Awaon Synth は、高度な機能を備えたウェブベースの合成器です。iPlug2 フレームワークを使用した、リアルタイムの音声処理と豊かな modulation により、無限の創造性を実現します。</p>
-            <p>このアルファ版は、初期段階での機能テストとユーザーフィードバック収集を目的としています。</p>
+        </section>
+        <section class="hero" data-lang="en">
+            <h1>Welcome to Awaon Synth</h1>
         </section>
 
-        <section class="download-section">
+        <section class="download-section" data-lang="ja">
             <h2>ダウンロード</h2>
             <div class="button-group">
                 <div>
                     <button onclick="downloadMacOS()">
                         macOS をダウンロード
-                        <span class="button-label">12.1 MB</span>
+                        <span class="button-label">12.1 MB · .app</span>
                     </button>
                 </div>
                 <div>
@@ -219,11 +354,34 @@
                 </div>
             </div>
             <div class="specs">
-                <strong>システム要件:</strong> macOS 11 以上
+                <strong>現在の対応:</strong> macOS 11+ (.app)<br>
+                <strong>対応予定:</strong> AU v3、VST3
             </div>
         </section>
 
-        <section class="info-section">
+        <section class="download-section" data-lang="en">
+            <h2>Download</h2>
+            <div class="button-group">
+                <div>
+                    <button onclick="downloadMacOS()">
+                        Download for macOS
+                        <span class="button-label">12.1 MB · .app</span>
+                    </button>
+                </div>
+                <div>
+                    <button disabled>
+                        Windows
+                        <span class="button-label">Coming Soon</span>
+                    </button>
+                </div>
+            </div>
+            <div class="specs">
+                <strong>Current Support:</strong> macOS 11+ (.app)<br>
+                <strong>Coming Soon:</strong> AU v3, VST3
+            </div>
+        </section>
+
+        <section class="info-section" data-lang="ja">
             <h3>起動できない場合の対処法</h3>
             <p>初回起動時に「開発元が不明なため開けません」というエラーが表示される場合があります。以下の手順を実行してください：</p>
             <ol>
@@ -237,7 +395,21 @@
             <p style="margin-top: 16px; color: #666;"><strong>補足:</strong> このコマンドは macOS のセキュリティ属性 (quarantine attribute) を削除するもので、2025年でも引き続き有効です。署名されていないアプリケーションやインターネットから直接ダウンロードされたアプリケーションに対して使用されます。</p>
         </section>
 
-        <section class="info-section" style="margin-top: 40px;">
+        <section class="info-section" data-lang="en">
+            <h3>Troubleshooting</h3>
+            <p>If you see an error message "cannot be opened because the developer cannot be verified" on first launch, follow these steps:</p>
+            <ol>
+                <li><strong>Open Terminal</strong> (Applications → Utilities → Terminal)</li>
+                <li><strong>Run the following command</strong>
+                    <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
+                    <p style="margin-top: 8px; font-size: 13px; color: #999;">Replace the path with the actual location of Awaon.app if different</p>
+                </li>
+                <li><strong>Launch Awaon.app</strong></li>
+            </ol>
+            <p style="margin-top: 16px; color: #999;"><strong>Note:</strong> This command removes the macOS quarantine attribute and remains effective in 2025. It is used for unsigned applications or those downloaded directly from the internet.</p>
+        </section>
+
+        <section class="info-section" style="margin-top: 40px;" data-lang="ja">
             <h3>主な機能</h3>
             <p><strong>オシレーター:</strong> ウェーブテーブル合成による 2 つのオシレーター + トランジェントシェイパー</p>
             <p><strong>フィルター:</strong> 4 種類の VCF (ローパス、ハイパス、バンドパス、ノッチ) と共鳴フィルター</p>
@@ -246,7 +418,16 @@
             <p><strong>プリセット:</strong> プリセット管理システムと仮想 MIDI キーボード</p>
         </section>
 
-        <section class="info-section" style="margin-top: 40px;">
+        <section class="info-section" style="margin-top: 40px;" data-lang="en">
+            <h3>Features</h3>
+            <p><strong>Oscillators:</strong> 2 wavetable oscillators + transient shaper with wavetable synthesis</p>
+            <p><strong>Filters:</strong> 4 types of VCF (lowpass, highpass, bandpass, notch) and resonance filter</p>
+            <p><strong>Effects:</strong> Delay, Chorus, Reverb</p>
+            <p><strong>Modulation:</strong> 2 envelopes and 2 LFOs with complete modulation matrix</p>
+            <p><strong>Presets:</strong> Preset management system and virtual MIDI keyboard</p>
+        </section>
+
+        <section class="info-section" style="margin-top: 40px;" data-lang="ja">
             <h3>初回起動時の設定</h3>
             <p>Awaon Synth は初回起動時に、ユーザープリセットとウェーブテーブル用のディレクトリを自動生成します:</p>
             <div class="code-block">~/Library/Audio/Presets/Hugelton/Awaon/</div>
@@ -257,22 +438,63 @@
             </ul>
             <p style="margin-top: 12px;">カスタムウェーブテーブルは <strong>.wtb</strong> 拡張子で <code style="background-color: #ffffff; padding: 2px 4px; border: 1px solid #d0d0d0;">Wavetables/</code> フォルダに保存できます。</p>
         </section>
+
+        <section class="info-section" style="margin-top: 40px;" data-lang="en">
+            <h3>Initial Setup</h3>
+            <p>On first launch, Awaon Synth automatically creates a directory for user presets and wavetables:</p>
+            <div class="code-block">~/Library/Audio/Presets/Hugelton/Awaon/</div>
+            <p>The following are created in this directory:</p>
+            <ul style="margin-left: 20px; font-size: 14px; color: #555; line-height: 1.7;">
+                <li><strong>Init.awaon</strong> - Default preset file</li>
+                <li><strong>Wavetables/</strong> - Folder for user wavetables</li>
+            </ul>
+            <p style="margin-top: 12px;">Custom wavetables can be saved with the <strong>.wtb</strong> extension in the <code style="background-color: #ffffff; padding: 2px 4px; border: 1px solid #d0d0d0;">Wavetables/</code> folder.</p>
+        </section>
     </main>
 
     <footer>
-        <p>Awaon Synth Alpha v0.0.1</p>
+        <p>Awaon Synth v0.0.1</p>
         <p>© Hügelton Instruments, Kōbe, Japan.</p>
         <p><a href="https://hugelton.com/" style="color: #999; text-decoration: none;">https://hugelton.com/</a></p>
-        <p style="margin-top: 16px; color: #ccc;">
+        <p style="margin-top: 16px; color: #ccc;" data-lang="ja">
+            ご意見・ご報告は <a href="https://github.com/hugelton/awaon-synth" style="color: #999; text-decoration: none;">GitHub リポジトリ</a> でお願いします
+        </p>
+        <p style="margin-top: 16px; color: #ccc;" data-lang="en">
             For feedback and issues, please visit the <a href="https://github.com/hugelton/awaon-synth" style="color: #999; text-decoration: none;">GitHub repository</a>
         </p>
     </footer>
 
     <script>
+        function setLanguage(lang) {
+            const body = document.body;
+            const buttons = document.querySelectorAll('.lang-btn');
+
+            if (lang === 'en') {
+                body.classList.add('lang-en');
+            } else {
+                body.classList.remove('lang-en');
+            }
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            localStorage.setItem('lang', lang);
+        }
+
         function downloadMacOS() {
             const downloadUrl = 'https://github.com/hugelton/awaon-synth/raw/main/build/Awaon-0.0.1.zip';
             window.location.href = downloadUrl;
         }
+
+        // Initialize language on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('lang') || 'ja';
+            if (savedLang === 'en') {
+                document.body.classList.add('lang-en');
+                document.querySelectorAll('.lang-btn')[1].classList.add('active');
+                document.querySelectorAll('.lang-btn')[0].classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
