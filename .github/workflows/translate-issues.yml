@@ -1,0 +1,106 @@
+name: Translate Issues to English
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - name: Check if issue needs translation
+        id: check
+        run: |
+          # Check if issue has known-issue or feature-request label
+          LABELS='${{ toJson(github.event.issue.labels) }}'
+          if echo "$LABELS" | grep -q '"name":"known-issue"' || echo "$LABELS" | grep -q '"name":"feature-request"'; then
+            echo "needs_translation=true" >> $GITHUB_OUTPUT
+          else
+            echo "needs_translation=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check if translation already exists
+        if: steps.check.outputs.needs_translation == 'true'
+        id: has_translation
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const hasTranslation = comments.data.some(comment =>
+              comment.user.type === 'Bot' && comment.body.includes('**English Translation:**')
+            );
+
+            core.setOutput('has_translation', hasTranslation);
+
+      - name: Install dependencies
+        if: steps.check.outputs.needs_translation == 'true' && steps.has_translation.outputs.has_translation == 'false'
+        run: pip install anthropic
+
+      - name: Translate with Claude
+        if: steps.check.outputs.needs_translation == 'true' && steps.has_translation.outputs.has_translation == 'false'
+        id: translate
+        run: |
+          cat > translate.py << 'EOF'
+          import anthropic
+          import json
+          import sys
+
+          client = anthropic.Anthropic(api_key="${{ secrets.ANTHROPIC_API_KEY }}")
+
+          title = """${{ github.event.issue.title }}"""
+          body = """${{ github.event.issue.body }}"""
+
+          prompt = f"""以下の日本語のGitHub issueを英語に翻訳してください。
+
+          タイトルと説明の両方を翻訳し、以下の形式で提供してください：
+
+          **English Title:**
+          [翻訳されたタイトル]
+
+          **English Description:**
+          [翻訳された説明]
+
+          日本語タイトル：{title}
+
+          日本語説明：{body}"""
+
+          message = client.messages.create(
+              model="claude-3-5-sonnet-20241022",
+              max_tokens=1024,
+              messages=[
+                  {{"role": "user", "content": prompt}}
+              ]
+          )
+
+          translation = message.content[0].text
+          print(translation)
+          EOF
+
+          python3 translate.py > translation.txt
+          cat translation.txt
+
+      - name: Post translation comment
+        if: steps.check.outputs.needs_translation == 'true' && steps.has_translation.outputs.has_translation == 'false'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const translation = fs.readFileSync('translation.txt', 'utf8');
+
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: translation
+            });
