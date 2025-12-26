@@ -106,6 +106,34 @@
                 color: #e0e0e0 !important;
             }
 
+            .issues-list {
+                color: #e0e0e0 !important;
+            }
+
+            .issue-severity {
+                color: #b0b0b0 !important;
+            }
+
+            .issue-body {
+                color: #b0b0b0 !important;
+            }
+
+            #known-issues-container ul li {
+                color: #e0e0e0 !important;
+            }
+
+            #known-issues-container ul li strong {
+                color: #ffffff !important;
+            }
+
+            #known-issues-container ul li span {
+                color: #b0b0b0 !important;
+            }
+
+            #known-issues-container ul li p {
+                color: #b0b0b0 !important;
+            }
+
             footer {
                 border-top: 1px solid #242424;
                 color: #808080;
@@ -147,22 +175,23 @@
             font-weight: 600;
         }
 
-        .lang-btn:hover {
-            color: #333333;
-        }
-
         @media (prefers-color-scheme: dark) {
             .lang-btn {
-                color: #ffffff;
+                color: #e0e0e0;
             }
 
             .lang-btn.active {
                 color: #ffffff;
+                font-weight: 600;
             }
 
             .lang-btn:hover {
-                color: #e0e0e0;
+                color: #ffffff;
             }
+        }
+
+        .lang-btn:hover {
+            color: #333333;
         }
 
         .logo {
@@ -324,6 +353,12 @@
             color: #1a1a1a;
         }
 
+        @media (prefers-color-scheme: dark) {
+            footer a:hover {
+                color: #ffffff;
+            }
+        }
+
         .alert-block {
             background-color: #ffebee;
 
@@ -341,6 +376,67 @@
 
                 color: #ffb3ba;
             }
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .subtitle {
+                color: #a0a0a0;
+            }
+        }
+
+        .content-link {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .content-link {
+                color: #5599ff;
+            }
+        }
+
+        .note-text {
+            color: #666;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .note-text {
+                color: #a0a0a0;
+            }
+        }
+
+        .small-text {
+            font-size: 12px;
+            color: #999;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .small-text {
+                color: #888888;
+            }
+        }
+
+        .issues-list {
+            margin-left: 20px;
+            font-size: 14px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .issue-severity {
+            color: #999;
+        }
+
+        .issue-body {
+            margin-top: 4px;
+            margin-bottom: 8px;
+            color: #666;
         }
 
         [data-lang="en"] {
@@ -368,7 +464,7 @@
             <img src="src/Awaon.png" alt="Awaon">
             Awaon
         </div>
-        <div style="font-size: 14px; color: #666; margin-bottom: 12px;">Software Synthesizer</div>
+        <div class="subtitle">Software Synthesizer</div>
         <div class="version">v0.0.1 Alpha</div>
     </header>
 
@@ -435,30 +531,30 @@
                 <ol>
                     <li>以下のファイルをダウンロード：
                         <ul style="margin-top: 8px; margin-left: 20px;">
-                            <li><a href="https://github.com/hugelton/awaon-synth/raw/main/build/Init.awaon" style="color: #0066cc;">Init.awaon</a></li>
-                            <li><a href="https://github.com/hugelton/awaon-synth/raw/main/build/install-preset.scpt" style="color: #0066cc;">install-preset.scpt</a></li>
+                            <li><a href="https://github.com/hugelton/awaon-synth/raw/main/build/Init.awaon" class="content-link">Init.awaon</a></li>
+                            <li><a href="https://github.com/hugelton/awaon-synth/raw/main/build/install-preset.scpt" class="content-link">install-preset.scpt</a></li>
                         </ul>
                     </li>
                     <li><strong>install-preset.scpt</strong> をダブルクリック</li>
                     <li>ファイル選択ダイアログで、ダウンロードした <strong>Init.awaon</strong> を選択</li>
                     <li>自動的に <code>~/Library/Audio/Presets/Hugelton/Awaon/</code> に配置されます</li>
                 </ol>
-                <p style="margin-top: 12px; color: #666;"><strong>注意:</strong> 同時に <code>Wavetables/</code> フォルダも自動作成されます。</p>
+                <p style="margin-top: 12px;" class="note-text"><strong>注意:</strong> 同時に <code>Wavetables/</code> フォルダも自動作成されます。</p>
             </div>
             <div class="troubleshoot-content" data-lang="en">
                 <p><strong>Steps to install the initial preset (macOS only)</strong></p>
                 <ol>
                     <li>Download the following files:
                         <ul style="margin-top: 8px; margin-left: 20px;">
-                            <li><a href="https://github.com/hugelton/awaon-synth/raw/main/build/Init.awaon" style="color: #0066cc;">Init.awaon</a></li>
-                            <li><a href="https://github.com/hugelton/awaon-synth/raw/main/build/install-preset.scpt" style="color: #0066cc;">install-preset.scpt</a></li>
+                            <li><a href="https://github.com/hugelton/awaon-synth/raw/main/build/Init.awaon" class="content-link">Init.awaon</a></li>
+                            <li><a href="https://github.com/hugelton/awaon-synth/raw/main/build/install-preset.scpt" class="content-link">install-preset.scpt</a></li>
                         </ul>
                     </li>
                     <li>Double-click <strong>install-preset.scpt</strong></li>
                     <li>In the file dialog, select the downloaded <strong>Init.awaon</strong></li>
                     <li>It will automatically be placed in <code>~/Library/Audio/Presets/Hugelton/Awaon/</code></li>
                 </ol>
-                <p style="margin-top: 12px; color: #666;"><strong>Note:</strong> The <code>Wavetables/</code> folder will also be created automatically.</p>
+                <p style="margin-top: 12px;" class="note-text"><strong>Note:</strong> The <code>Wavetables/</code> folder will also be created automatically.</p>
             </div>
         </details>
 
@@ -473,7 +569,7 @@
                     <li>ターミナルを開く (アプリケーション → ユーティリティ → ターミナル)</li>
                     <li>以下のコマンドを実行
                         <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
-                        <p style="margin-top: 8px; font-size: 12px; color: #999;">※ パスは実際の保存場所に置き換えてください</p>
+                        <p style="margin-top: 8px;" class="small-text">※ パスは実際の保存場所に置き換えてください</p>
                     </li>
                 </ol>
             </div>
@@ -484,7 +580,7 @@
                     <li>Open Terminal (Applications → Utilities → Terminal)</li>
                     <li>Run the command
                         <div class="code-block">xattr -dr com.apple.quarantine ~/Downloads/Awaon.app</div>
-                        <p style="margin-top: 8px; font-size: 12px; color: #999;">Replace the path if Awaon.app is in a
+                        <p style="margin-top: 8px;" class="small-text">Replace the path if Awaon.app is in a
                             different location</p>
                     </li>
                 </ol>
@@ -545,14 +641,14 @@
                     return;
                 }
 
-                let html = '<ul style="margin-left: 20px; font-size: 14px; color: #555; line-height: 1.8;">';
+                let html = '<ul class="issues-list">';
                 issues.forEach(issue => {
                     const severity = issue.labels.find(l => l.name.startsWith('severity:'));
                     const severityText = severity ? severity.name.replace('severity:', '') : 'Medium';
                     html += `
                         <li>
-                            <strong>${issue.title}</strong> <span style="color: #999;">[${severityText}]</span>
-                            <p style="margin-top: 4px; margin-bottom: 8px; color: #666;">${issue.body || ''}</p>
+                            <strong>${issue.title}</strong> <span class="issue-severity">[${severityText}]</span>
+                            <p class="issue-body">${issue.body || ''}</p>
                         </li>
                     `;
                 });
