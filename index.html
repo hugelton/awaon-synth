@@ -134,6 +134,10 @@
                 color: #b0b0b0 !important;
             }
 
+            #known-issues-container [data-lang="en"] {
+                border-top-color: #242424 !important;
+            }
+
             footer {
                 border-top: 1px solid #242424;
                 color: #808080;
@@ -642,21 +646,70 @@
                 }
 
                 let html = '<ul class="issues-list">';
-                issues.forEach(issue => {
+
+                // Fetch comments for each issue to get English translations
+                for (const issue of issues) {
                     const severity = issue.labels.find(l => l.name.startsWith('severity:'));
                     const severityText = severity ? severity.name.replace('severity:', '') : 'Medium';
+
+                    // Fetch comments to extract English translation
+                    let enTitle = '';
+                    let enBody = '';
+                    try {
+                        const commentsResponse = await fetch(
+                            `https://api.github.com/repos/hugelton/awaon-synth/issues/${issue.number}/comments`
+                        );
+                        const comments = await commentsResponse.json();
+
+                        // Find first comment with English Translation
+                        const translationComment = comments.find(c =>
+                            c.body.includes('**English Translation:**')
+                        );
+
+                        if (translationComment) {
+                            const enMatch = translationComment.body.match(/\*\*English Title:\*\*\s*(.+?)(?=\n\n|\n\*\*)/s);
+                            const descMatch = translationComment.body.match(/\*\*English Description:\*\*\s*(.+?)$/s);
+
+                            enTitle = enMatch ? enMatch[1].trim() : '';
+                            enBody = descMatch ? descMatch[1].trim() : '';
+                        }
+                    } catch (e) {
+                        console.log('Could not fetch comments for issue', issue.number);
+                    }
+
                     html += `
                         <li>
-                            <strong>${issue.title}</strong> <span class="issue-severity">[${severityText}]</span>
-                            <p class="issue-body">${issue.body || ''}</p>
+                            <div data-lang="ja">
+                                <strong>${issue.title}</strong> <span class="issue-severity">[${severityText}]</span>
+                                <p class="issue-body">${issue.body || ''}</p>
+                            </div>
+                            <div data-lang="en" style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #f0f0f0;">
+                                <strong>${enTitle || issue.title}</strong> <span class="issue-severity">[${severityText}]</span>
+                                <p class="issue-body">${enBody || issue.body || ''}</p>
+                            </div>
                         </li>
                     `;
-                });
+                }
                 html += '</ul>';
                 container.innerHTML = html;
+
+                // Apply dark mode styles to the new elements
+                applyDarkModeStyles();
             } catch (error) {
                 console.log('Failed to fetch issues:', error);
                 container.innerHTML = '<p data-lang="ja">既知の問題の読み込みに失敗しました</p><p data-lang="en">Failed to load known issues</p>';
+            }
+        }
+
+        // Apply dark mode styling to dynamically generated content
+        function applyDarkModeStyles() {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                const enDivs = document.querySelectorAll('[data-lang="en"]');
+                enDivs.forEach(div => {
+                    if (div.style.borderTop) {
+                        div.style.borderTop = '1px solid #242424';
+                    }
+                });
             }
         }
 
