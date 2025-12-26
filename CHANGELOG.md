@@ -2,7 +2,25 @@
 
 All notable changes to Awaon Synth are documented in this file.
 
-## [0.0.1 Alpha] - 2025-12-26
+## [0.0.2] - 2025-12-26
+
+### Fixed
+- **LFO1/2 Delay parameter** - Fixed delay parameter not reflecting in audio output
+- **Filter Resonance distortion** - Improved resonance algorithm to prevent clipping at high settings
+- **Resonator Modal distortion** - Optimized modal synthesis to reduce audio distortion
+
+### Added
+- **Software Keyboard Glissando** - Added glissando/portamento support on software keyboard for smooth pitch transitions
+- **Automatic Preset Creation** - Installer now automatically creates preset files during installation
+- Improved resonance handling across all filter modules
+- Better preset loading and management
+
+### Changed
+- Updated file format from DMG to PKG for macOS installation
+- Installer now handles preset setup automatically
+- Enhanced preset system stability
+
+## [0.0.1 Alpha] - 2025-12-25
 
 ### Added
 - Initial alpha release of Awaon Synth
@@ -44,9 +62,9 @@ All notable changes to Awaon Synth are documented in this file.
 - Performance optimizations
 
 ### Known Limitations
-- macOS only (11+) in current alpha release
-- Plugin versions not yet available
-- Some parameters may not work as expected
+- macOS only (11+) in current release
+- Plugin versions (AU v3, VST3) not yet available
+- Beta software - Some parameters may not work as expected
 - Unexpected behavior or crashes may occur during normal use
 
 ### Technical Details
@@ -57,7 +75,7 @@ All notable changes to Awaon Synth are documented in this file.
 - Dark mode support with `@media (prefers-color-scheme: dark)`
 
 ### File Distribution
-- **Awaon-0.0.1.dmg** (12.1 MB) - macOS standalone application
+- **Awaon-0.0.2.pkg** (22 MB) - macOS installer with automatic preset setup
 - **Init.awaon** - Initial preset file for the synthesizer
 - **install-preset.scpt** - AppleScript for automated preset installation
 
