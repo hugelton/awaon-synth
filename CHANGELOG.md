@@ -2,6 +2,21 @@
 
 All notable changes to Awaon Synth are documented in this file.
 
+## [0.0.4] - 2026-01-03
+
+### Added
+- **Redesigned distribution website** with improved UX
+- Large window showcase image in header
+- GitHub Issues integration for bug reporting
+- Users can now report issues directly via GitHub Issues
+
+### Changed
+- Simplified download button labels (macOS / Windows)
+- Clear OS version requirements displayed (macOS 26+, Windows 11+)
+- Streamlined button specifications showing format and features
+- Removed redundant alert blocks, integrated info into buttons
+- Better visual hierarchy with logo repositioning
+
 ## [0.0.3] - 2026-01-03
 
 ### Added
@@ -90,7 +105,8 @@ All notable changes to Awaon Synth are documented in this file.
 - Dark mode support with `@media (prefers-color-scheme: dark)`
 
 ### File Distribution
-- **Awaon-0.0.3.pkg** (4.7 MB) - macOS installer with AU v2 plugin and standalone app
+- **Awaon-0.0.4.pkg** (14 MB) - Latest macOS installer with AU v2 plugin, standalone app, and redesigned website
+- **Awaon-0.0.3.pkg** (4.7 MB) - Previous version - macOS installer with AU v2 plugin and standalone app
 - **Awaon-0.0.2.pkg** (22 MB) - Previous version - macOS installer with automatic preset setup
 - **Init.awaon** - Initial preset file for the synthesizer
 - **install-preset.scpt** - AppleScript for automated preset installation
