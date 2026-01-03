@@ -469,19 +469,18 @@
             Awaon
         </div>
         <div class="subtitle">Software Synthesizer</div>
-        <div class="version">v0.0.2</div>
+        <div class="version">v0.0.3</div>
     </header>
 
     <main>
         <div class="alert-block" data-lang="ja">
-            <strong>スタンドアロンアプリのみ</strong><br>
-            現在のところ、Awaon Synth はスタンドアロンアプリとして配布されています。プラグイン版（AU v3、VST3）は近日対応予定です。
+            <strong>AU v2プラグイン対応</strong><br>
+            このバージョンからAU v2プラグイン（.component）がパッケージに含まれています。DAWで使用可能です。AU v3、VST3は近日対応予定です。
         </div>
 
         <div class="alert-block" data-lang="en">
-            <strong>Standalone App Only</strong><br>
-            Awaon Synth is currently distributed as a standalone application. Plugin versions (AU v3, VST3) will be
-            available soon.
+            <strong>AU v2 Plugin Support</strong><br>
+            This version includes AU v2 plugin (.component) in the package. Can be used in DAWs. AU v3, VST3 support coming soon.
         </div>
 
         <div class="content">
@@ -490,7 +489,7 @@
                     <button onclick="downloadMacOS()">
                         <span data-lang="ja">macOS版をダウンロード</span>
                         <span data-lang="en">Download for macOS</span>
-                        <span class="button-label">22 MB · .pkg</span>
+                        <span class="button-label">4.7 MB · .pkg</span>
                     </button>
                 </div>
                 <div>
@@ -583,7 +582,7 @@
     </main>
 
     <footer>
-        <p>Awaon v0.0.2</p>
+        <p>Awaon v0.0.3</p>
         <p>© Hügelton Instruments, Kōbe, Japan.</p>
         <p><a href="https://hugelton.com/">https://hugelton.com/</a></p>
         <p style="margin-top: 16px;">
@@ -621,7 +620,7 @@
         }
 
         function downloadMacOS() {
-            const downloadUrl = 'https://github.com/hugelton/awaon-synth/raw/main/build/Awaon-0.0.2.pkg';
+            const downloadUrl = 'https://github.com/hugelton/awaon-synth/raw/main/build/Awaon-0.0.3.pkg';
             window.location.href = downloadUrl;
         }
 

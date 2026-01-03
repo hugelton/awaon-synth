@@ -2,6 +2,21 @@
 
 All notable changes to Awaon Synth are documented in this file.
 
+## [0.0.3] - 2026-01-03
+
+### Added
+- **AU v2 Plugin Support** - Awaon Synth can now be used as an AU v2 plugin (.component) in compatible DAWs
+- AU v2 component included in the installer package
+- Support for DAW integration and plugin hosting
+
+### Fixed
+- **Preset loading on startup** - Fixed issues with presets not loading correctly on initial launch or after updates
+- Improved preset file handling and error recovery
+
+### Changed
+- File size optimized with plugin support (22 MB → 4.7 MB)
+- Standalone app and AU v2 plugin in single installer
+
 ## [0.0.2] - 2025-12-26
 
 ### Fixed
@@ -75,7 +90,8 @@ All notable changes to Awaon Synth are documented in this file.
 - Dark mode support with `@media (prefers-color-scheme: dark)`
 
 ### File Distribution
-- **Awaon-0.0.2.pkg** (22 MB) - macOS installer with automatic preset setup
+- **Awaon-0.0.3.pkg** (4.7 MB) - macOS installer with AU v2 plugin and standalone app
+- **Awaon-0.0.2.pkg** (22 MB) - Previous version - macOS installer with automatic preset setup
 - **Init.awaon** - Initial preset file for the synthesizer
 - **install-preset.scpt** - AppleScript for automated preset installation
 
